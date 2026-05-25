@@ -7,9 +7,7 @@ from telegram.ext import (
     ContextTypes,
 )
 
-TOKEN = "Here is the token for bot cleannest_uz_bot @cleannestuzbot:
-
-8967778406:AAFEscinvyQikkchuTGSQuwWZe1jxcTYqY4"
+TOKEN = "8967778406:AAFEscinvyQikkchuTGSQuwWZe1jxcTYqY4"
 
 keyboard = [
     ["🧼 Gilam yuvish"],
@@ -43,17 +41,14 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     elif text == "📞 Aloqa":
         await update.message.reply_text(
-            "Telefon: +998 77 455 28 29"
+            "Telefon: +998 90 123 45 67"
         )
 
 def main():
     app = Application.builder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
-
-    app.add_handler(
-        MessageHandler(filters.TEXT, message_handler)
-    )
+    app.add_handler(MessageHandler(filters.TEXT, message_handler))
 
     print("Bot ishladi...")
     app.run_polling()
