@@ -1,13 +1,13 @@
 from telegram import ReplyKeyboardMarkup, Update
 from telegram.ext import (
-    Updater,
+    Application,
     CommandHandler,
     MessageHandler,
-    Filters,
-    CallbackContext,
+    filters,
+    ContextTypes,
 )
 
-TOKEN = "8967778406:AAFEscinvyQikkchuTGSQuwWZe1jxcTYqY4"
+TOKEN = "TOKENINGNI_QOY"
 
 keyboard = [
     ["🧼 Gilam yuvish"],
@@ -20,39 +20,41 @@ reply_markup = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
-def start(update: Update, context: CallbackContext):
-    update.message.reply_text(
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
         "CleanUZ botiga xush kelibsiz!",
         reply_markup=reply_markup
     )
 
-def message_handler(update: Update, context: CallbackContext):
+async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text
 
     if text == "🧼 Gilam yuvish":
-        update.message.reply_text(
+        await update.message.reply_text(
             "Gilam yuvish narxi: 25 000 so'm"
         )
 
     elif text == "🚘 Moshina yuvish":
-        update.message.reply_text(
+        await update.message.reply_text(
             "Moshina yuvish narxi: 80 000 so'm"
         )
 
     elif text == "📞 Aloqa":
-        update.message.reply_text(
-            "Telefon: +998 77 455 28 29"
+        await update.message.reply_text(
+            "Telefon: +998 90 123 45 67"
         )
 
 def main():
-    updater = Updater(TOKEN, use_context=True)
+    app = Application.builder().token(TOKEN).build()
 
-    dp = updater.dispatcher
-    dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(MessageHandler(Filters.text, message_handler))
+    app.add_handler(CommandHandler("start", start))
 
-    updater.start_polling()
-    updater.idle()
+    app.add_handler(
+        MessageHandler(filters.TEXT, message_handler)
+    )
+
+    print("Bot ishladi...")
+    app.run_polling()
 
 if __name__ == "__main__":
     main()
