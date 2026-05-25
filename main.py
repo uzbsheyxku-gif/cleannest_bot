@@ -7,7 +7,9 @@ from telegram.ext import (
     ContextTypes,
 )
 
-TOKEN = "TOKENINGNI_QOY"
+TOKEN = "Here is the token for bot cleannest_uz_bot @cleannestuzbot:
+
+8967778406:AAFEscinvyQikkchuTGSQuwWZe1jxcTYqY4"
 
 keyboard = [
     ["🧼 Gilam yuvish"],
