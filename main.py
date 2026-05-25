@@ -8,7 +8,7 @@ from telegram.ext import (
     ContextTypes,
 )
 
-TOKEN = 8967778406:AAFEscinvyQikkchuTGSQuwWZe1jxcTYqY4
+TOKEN = "8967778406:AAFEscinvyQikkchuTGSQuwWZe1jxcTYqY4"
 
 keyboard = [
     ["🧼 Gilam yuvish"],
@@ -42,7 +42,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     elif text == "📞 Aloqa":
         await update.message.reply_text(
-            "Telefon: +998 90 123 45 67"
+            "Telefon: +998 77 455 28 29"
         )
 
 def main():
